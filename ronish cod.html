@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Girlfriend & Experiences</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffe6f0;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow: hidden;
+        }
+        header {
+            background-color: #ff99cc;
+            width: 100%;
+            text-align: center;
+            padding: 20px 0;
+            color: white;
+            font-size: 2rem;
+        }
+        .container {
+            margin: 20px;
+            padding: 20px;
+            border: 2px solid #ff99cc;
+            border-radius: 10px;
+            background-color: white;
+            max-width: 600px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        .image-row {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .image-row img {
+            width: 45%;
+            border-radius: 10px;
+        }
+        footer {
+            background-color: #ff99cc;
+            color: white;
+            width: 100%;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+        }
+        #yes-btn, #no-btn {
+            padding: 10px 20px;
+            font-size: 1rem;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #yes-btn {
+            background-color: #4CAF50;
+            color: white;
+        }
+        #no-btn {
+            background-color: #f44336;
+            color: white;
+        }
+        .balloon {
+            position: fixed;
+            bottom: 0;
+            font-size: 2rem;
+            animation: riseUp 5s linear infinite;
+        }
+        @keyframes riseUp {
+            0% {
+                transform: translateY(100%);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+        }
+        #message {
+            margin-top: 20px;
+            font-size: 1.5rem;
+            color: #4CAF50;
+        }
+        .next-page {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        This for you Aradhana
+    </header>
+
+    <div class="container" id="main-content">
+        <h2>Do You Love Me Aradnana ?</h2>
+        <button id="yes-btn">Yes</button>
+        <button id="no-btn">No</button>
+        <div id="message"></div>
+        <img id="gf-image" src="file:///C:/Users/user/Pictures/Saved%20Pictures/471426171_122155063814320176_8176181058218433394_n.jpg" alt="Picture of my girlfriend">
+    </div>
+
+    <div class="next-page" id="next-page">
+        <h2>Aradhana ❤️ Ronish</h2>
+        <div class="image-row">
+            <img src="file:///C:/Users/user/Pictures/Saved%20Pictures/471426171_122155063814320176_8176181058218433394_n.jpg" alt="Picture of my girlfriend">
+            <img src="file:///C:/Users/user/Pictures/Saved%20Pictures/86a18f3b-74ef-4a65-ab89-cdf047915941.jpg" alt="Picture of myself">
+        </div>
+    </div>
+
+    <footer>
+        Made with love &hearts;
+    </footer>
+
+    <script>
+        const yesBtn = document.getElementById('yes-btn');
+        const noBtn = document.getElementById('no-btn');
+        const messageDiv = document.getElementById('message');
+        const mainContent = document.getElementById('main-content');
+        const nextPage = document.getElementById('next-page');
+
+        yesBtn.addEventListener('click', () => {
+            document.body.style.backgroundColor = '#ffccff';
+            messageDiv.textContent = 'I love you too! ❤️';
+            generateBalloons();
+            setTimeout(() => {
+                mainContent.style.display = 'none';
+                nextPage.style.display = 'block';
+            }, 3000);
+        });
+
+        noBtn.addEventListener('mouseover', () => {
+            noBtn.style.position = 'absolute';
+            noBtn.style.top = Math.random() * (window.innerHeight - 50) + 'px';
+            noBtn.style.left = Math.random() * (window.innerWidth - 100) + 'px';
+        });
+
+        function generateBalloons() {
+            setInterval(() => {
+                const balloon = document.createElement('div');
+                balloon.textContent = '❤️';
+                balloon.className = 'balloon';
+                balloon.style.left = Math.random() * window.innerWidth + 'px';
+                balloon.style.animationDuration = Math.random() * 3 + 2 + 's';
+                document.body.appendChild(balloon);
+                setTimeout(() => {
+                    balloon.remove();
+                }, 5000);
+            }, 300);
+        }
+    </script>
+</body>
+</html>
